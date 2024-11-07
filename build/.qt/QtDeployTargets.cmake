@@ -1,2 +1,0 @@
-set(__QT_DEPLOY_TARGET_OpenThisle_FILE /home/zander/Documents/OpenThisle/build/OpenThisle)
-set(__QT_DEPLOY_TARGET_OpenThisle_TYPE EXECUTABLE)
