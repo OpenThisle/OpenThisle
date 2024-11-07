@@ -4,10 +4,32 @@ project(OpenThisle VERSION 0.0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_AUTOUIC ON)
 
-find_package(OGRE REQUIRED COMPONENTS Bites CONFIG)
-find_package(Qt6 REQUIRED COMPONENTS Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Core Gui Widgets)
 qt_standard_project_setup()
 
-target_link_libraries(helloworld PRIVATE Qt6::Core)
-add_subdirectory(src)
+file(GLOB_RECURSE CXX_SOURCES "src/*.cpp")
+file(GLOB_RECURSE C_SOURCES "src/*.c")
+file(GLOB_RECURSE SOURCES "src/**/*.cpp")
+file(GLOB_RECURSE gui "src/gui/*.cpp")
+file(GLOB_RECURSE ui "src/gui/*.ui")
+qt_wrap_ui(GENERATED_UI_HEADERS ${UI_FILES})
+
+qt_add_executable(OpenThisle
+    main.cpp
+    ${gui}
+    ${ui}
+)
+
+
+target_link_libraries(OpenThisle PUBLIC
+    Qt::Core
+    Qt::Gui
+    Qt::Widgets
+)
+
+set_target_properties(OpenThisle PROPERTIES
+    WIN32_EXECUTABLE ON
+    MACOSX_BUNDLE ON
+)

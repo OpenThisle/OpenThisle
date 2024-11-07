@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/OpenThisle.dir/OpenThisle_autogen/mocs_compilation.cpp.o CMakeFiles/OpenThisle.dir/main.cpp.o CMakeFiles/OpenThisle.dir/src/gui/Window.cpp.o -o OpenThisle  /usr/lib/libQt6Widgets.so.6.8.0 /usr/lib/libQt6Gui.so.6.8.0 /usr/lib/libGLX.so /usr/lib/libOpenGL.so /usr/lib/libQt6Core.so.6.8.0
