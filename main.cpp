@@ -64,6 +64,7 @@ void OpenThisle::setup()
 
     // get a pointer to the already created root
     Root* root = getRoot();
+    Ogre::RenderTarget* rendertarget = root->getRenderTarget("OpenThisle");
     SceneManager* scnMgr = root->createSceneManager();
 
     // register our scene with the RTSS
@@ -95,10 +96,13 @@ void OpenThisle::setup()
     camNode->attachObject(cam);
     camNode->setPosition(0, 0, 140);
     mCameraMan = new OgreBites::CameraMan(camNode);
-    mCameraMan->setStyle(OgreBites::CS_MANUAL);
+    mCameraMan->setStyle(OgreBites::CS_FREELOOK);
     addInputListener(mCameraMan);
+
+    this->setWindowGrab((NativeWindowType*)rendertarget, true);
     // and tell it to render into the main window
     getRenderWindow()->addViewport(cam);
+
     //! [camera]
 
     //! [entity1]
