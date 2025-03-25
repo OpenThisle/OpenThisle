@@ -81,7 +81,7 @@ void OpenThisle::setup()
     //! [newlight]
 
     //! [lightpos]
-    lightNode->setPosition(20, 80, 50);
+    lightNode->setPosition(0, 0, 0);
     //! [lightpos]
 
     //! [camera]
@@ -102,13 +102,18 @@ void OpenThisle::setup()
     // and tell it to render into the main window
     getRenderWindow()->addViewport(cam);
 
+
     //! [camera]
 
 
 
     //! [cameramove]
     camNode->setPosition(0, 0, 0);
+
     //! [cameramove]
+    Entity* ogreEntity = scnMgr->createEntity("stud.mesh");
+    SceneNode* ogreNode = scnMgr->getRootSceneNode()->createChildSceneNode();
+    ogreNode->attachObject(ogreEntity);
 
 
 }

@@ -1,3 +1,0 @@
-/home/zander/Source/OpenThisle/build/CMakeFiles/OpenThisle.dir
-/home/zander/Source/OpenThisle/build/CMakeFiles/edit_cache.dir
-/home/zander/Source/OpenThisle/build/CMakeFiles/rebuild_cache.dir
