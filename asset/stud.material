@@ -1,12 +1,11 @@
-
-material stud.objPart1Mtl
+material th.objPart1Mtl
 {
-	technique
+	technique everything
 	{
-		pass 
+		pass
 		{
-			ambient 0 0 0 1
-			diffuse 0.6 0.6 0.6 1
+			cull_hardware none
+            cull_software none 
 		}
 
 	}

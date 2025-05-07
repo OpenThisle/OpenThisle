@@ -20,3 +20,4 @@ add_executable(OpenThisle ${SOURCE_FILES})
 target_link_libraries(OpenThisle OgreBites)
 target_link_libraries(OpenThisle pugixml)
 ## [discover_ogre]
+configure_file(resources.cfg resources.cfg COPYONLY)

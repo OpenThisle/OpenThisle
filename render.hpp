@@ -6,6 +6,7 @@
 #include "OgreRTShaderSystem.h"
 #include <iostream>
 #include <OgreCameraMan.h>
+#include <OgreResourceManager.h>
 using namespace Ogre;
 using namespace OgreBites;
 

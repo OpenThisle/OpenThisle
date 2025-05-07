@@ -89,7 +89,7 @@ void OpenThisle::setup()
 
     // create the camera
     Camera* cam = scnMgr->createCamera("myCam");
-    cam->setNearClipDistance(5); // specific to this sample
+    cam->setNearClipDistance(5); 
     cam->setAutoAspectRatio(true);
     camNode->attachObject(cam);
     camNode->setPosition(0, 0, 140);
@@ -114,6 +114,13 @@ void OpenThisle::setup()
     Entity* ogreEntity = scnMgr->createEntity("stud.mesh");
     SceneNode* ogreNode = scnMgr->getRootSceneNode()->createChildSceneNode();
     ogreNode->attachObject(ogreEntity);
+    
+    Ogre::MaterialPtr studmaterial = static_cast<Ogre::MaterialPtr>(Ogre::MaterialManager::getSingleton().getByName("th.objPart1Mtl"));
+    Ogre::Technique* studtech = studmaterial->getTechnique("everything");
+    Ogre::Pass* studcolorpass = studtech->createPass();
+    Ogre::TextureUnitState* studtexture = studcolorpass->createTextureUnitState("color");
+    Ogre::ColourValue studcolor = Ogre::ColourValue(1.0, 1.0, 0.0, 1.0);
+    studtexture->setColourOperationEx(Ogre::LBX_SOURCE2, Ogre::LBS_TEXTURE, Ogre::LBS_MANUAL, studcolor);
 
 
 }
