@@ -7,6 +7,7 @@
 #include <iostream>
 #include <OgreCameraMan.h>
 #include <OgreResourceManager.h>
+#include <vector>
 using namespace Ogre;
 using namespace OgreBites;
 
@@ -19,6 +20,7 @@ public:
     virtual ~OpenThisle() {}
 
     void setup();
+    std::vector<Ogre::TextureUnitState> colors;
     bool keyPressed(const KeyboardEvent& evt);
 
 private:

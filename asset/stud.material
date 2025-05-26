@@ -6,6 +6,7 @@ material th.objPart1Mtl
 		{
 			cull_hardware none
             cull_software none 
+			
 		}
 
 	}
