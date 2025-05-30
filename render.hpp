@@ -8,6 +8,7 @@
 #include <OgreCameraMan.h>
 #include <OgreResourceManager.h>
 #include <vector>
+#include "world.hpp"
 using namespace Ogre;
 using namespace OgreBites;
 
@@ -27,3 +28,5 @@ private:
     OgreBites::CameraMan* mCameraMan;
     int captureCounter = 0;
 };
+
+

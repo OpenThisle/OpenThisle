@@ -6,7 +6,10 @@ material th.objPart1Mtl
 		{
 			cull_hardware none
             cull_software none 
-			
+			texture_unit color
+            {
+                colour_op_ex source1 src_manual src_current 1.0 0.5 0.5
+            }
 		}
 
 	}

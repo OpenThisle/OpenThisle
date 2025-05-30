@@ -79,15 +79,29 @@ void OpenThisle::setup()
 
     //! [cameramove]
     Entity* ogreEntity = scnMgr->createEntity("stud.mesh"); 
+    Entity* ogreEntity2 = scnMgr->createEntity("stud.mesh"); 
     SceneNode* ogreNode = scnMgr->getRootSceneNode()->createChildSceneNode();
+    SceneNode* ogreNode2 = scnMgr->getRootSceneNode()->createChildSceneNode();
     ogreNode->attachObject(ogreEntity);
-  
-    Ogre::MaterialPtr studmaterial = static_cast<Ogre::MaterialPtr>(Ogre::MaterialManager::getSingleton().getByName("th.objPart1Mtl")); 
-    Ogre::Technique* studtech = studmaterial->getTechnique("everything");
-    Ogre::Pass* studcolorpass = studtech->createPass();
-    Ogre::TextureUnitState* studtexture = studcolorpass->createTextureUnitState();
-    Ogre::ColourValue studcolor = Ogre::ColourValue(0.0, 0.0, 1.0, 0.0); // set color!
-    studtexture->setColourOperationEx(Ogre::LBX_MODULATE, Ogre::LBS_MANUAL, Ogre::LBS_CURRENT, studcolor);
+    ogreNode2->attachObject(ogreEntity2);
+    ogreNode2->setPosition(10.0, 10.0, 10.0);
+    Ogre::MaterialPtr studmaterialog = static_cast<Ogre::MaterialPtr>(Ogre::MaterialManager::getSingleton().getByName("th.objPart1Mtl")); 
+
+    Ogre::MaterialPtr studmaterial2 = studmaterialog->clone("partcolor/2");
+    Ogre::Technique* studtech2 = studmaterial2->getTechnique("everything");
+    Ogre::Pass* studcolorpass2 = studtech2->getPass(0);
+    Ogre::TextureUnitState* studtexture2 = studcolorpass2->getTextureUnitState(0);
+    Ogre::ColourValue studcolor2 = Ogre::ColourValue(0.0, 1.0, 0.0, 0.0); // set color!
+    studtexture2->setColourOperationEx(Ogre::LBX_MODULATE, Ogre::LBS_MANUAL, Ogre::LBS_CURRENT, studcolor2);
+    ogreEntity2->setMaterial(studmaterial2);
+
+    Ogre::MaterialPtr studmaterial1 = studmaterialog->clone("partcolor/1");
+    Ogre::Technique* studtech1 = studmaterial1->getTechnique("everything");
+    Ogre::Pass* studcolorpass1 = studtech1->getPass(0);
+    Ogre::TextureUnitState* studtexture1 = studcolorpass1->getTextureUnitState(0);
+    Ogre::ColourValue studcolor1 = Ogre::ColourValue(0.0, 0.0, 1.0, 0.0); // set color!
+    studtexture1->setColourOperationEx(Ogre::LBX_MODULATE, Ogre::LBS_MANUAL, Ogre::LBS_CURRENT, studcolor1);
+    ogreEntity->setMaterial(studmaterial1);
 
 
 }

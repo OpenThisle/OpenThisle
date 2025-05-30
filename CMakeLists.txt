@@ -15,6 +15,7 @@ file(GLOB SOURCE_FILES
      "*.cpp"
 )
 add_executable(OpenThisle ${SOURCE_FILES})
+add_subdirectory(${CMAKE_SOURCE_DIR}/classes)
 
 # this also sets the includes and pulls third party dependencies
 target_link_libraries(OpenThisle OgreBites)

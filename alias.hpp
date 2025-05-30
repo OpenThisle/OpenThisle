@@ -1,3 +1,7 @@
 #include <Ogre.h>
-
-typedef Ogre::Vector3 RBX::Classes::Vector3;
+namespace RBX {
+    namespace Classes {
+        typedef Ogre::Vector3 Vector3;
+    }
+    
+}
