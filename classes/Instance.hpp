@@ -7,7 +7,7 @@ namespace RBX {
             public:
                 std::string Name;
                 std::vector<Instance> children;
-                RBX::Instance* parent;
+                RBX::Classes::Instance* parent;
         };
     }
 }
