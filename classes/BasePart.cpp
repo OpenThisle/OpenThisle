@@ -2,12 +2,16 @@
 
 namespace RBX {
     namespace Classes {
-        
-        RBX::Classes::Vector3 BasePart::getBrickColor() {
+        BasePart::BasePart() {
+            this->renderSetup();
+        }
+        int BasePart::getBrickColor() {
             return this->brickColor;
         }
-        bool BasePart::setBrickColor(int color[]) {
-            this->brickColor = Ogre::Vector3((float)color[1], (float)color[2], (float)color[3]);
+        bool BasePart::setBrickColor(int color) {
+            this->renderColorChanger(color);
+            this->brickColor = color;
+            
             return true;
         }
 
@@ -15,9 +19,12 @@ namespace RBX {
             return this->position;
         }
 
-        RBX::Classes::Vector3 BasePart::setPosition(RBX::Classes::Vector3 position) {
+        bool BasePart::setPosition(RBX::Classes::Vector3 position) {
+            this->renderScnNode->setPosition(position);
             this->position = position;
-            this->sceneNode.setPosition(position);
+       
+            return 0;
+
         }
     }
 }

@@ -1,23 +1,22 @@
-#include "Instance.hpp"
+#include "RenderedObject.hpp"
 #include "../colors.hpp"
 #include <Ogre.h>
+#include <string>
 #include "../alias.hpp"
 namespace RBX {
     namespace Classes {
-        class BasePart : RBX::Classes::Instance {
+        class BasePart : RBX::Classes::RenderedObject {
             public:
                 BasePart();
-                RBX::Classes::Vector3 getBrickColor();
-                bool setBrickColor(int color[]);
+                int getBrickColor();
+                bool setBrickColor(int color);
                 RBX::Classes::Vector3 getSize();
                 bool setSize(RBX::Classes::Vector3 size);
                 RBX::Classes::Vector3 getPosition();
                 bool setPosition(RBX::Classes::Vector3 position);
 
             private:
-                Ogre::Entity entity;
-                Ogre::SceneNode sceneNode
-                RBX::Classes::Vector3 brickColor;
+                int brickColor;
                 RBX::Classes::Vector3 size;
                 RBX::Classes::Vector3 position;
 

@@ -30,7 +30,8 @@ void OpenThisle::setup()
     // get a pointer to the already created root
     Root* root = getRoot();
     Ogre::RenderTarget* rendertarget = root->getRenderTarget("OpenThisle");
-    SceneManager* scnMgr = root->createSceneManager();
+    SceneManager* scnMgr = root->createSceneManager("DefaultSceneManager", "mainWindow");
+
 
     // register our scene with the RTSS
     RTShader::ShaderGenerator* shadergen = RTShader::ShaderGenerator::getSingletonPtr();
@@ -78,6 +79,7 @@ void OpenThisle::setup()
     camNode->setPosition(0, 0, 0);
 
     //! [cameramove]
+    
     RBX::generateColorMaterial();
     Entity* ogreEntity = scnMgr->createEntity("stud.mesh"); 
     Entity* ogreEntity2 = scnMgr->createEntity("stud.mesh"); 
@@ -87,16 +89,14 @@ void OpenThisle::setup()
     ogreNode2->attachObject(ogreEntity2);
     ogreNode2->setPosition(10.0, 10.0, 10.0);
     Ogre::MaterialPtr studmaterial1 = static_cast<Ogre::MaterialPtr>(Ogre::MaterialManager::getSingleton().getByName("partcolor/1")); 
-    Ogre::MaterialPtr studmaterial2 = static_cast<Ogre::MaterialPtr>(Ogre::MaterialManager::getSingleton().getByName("partcolor/2")); 
+    Ogre::MaterialPtr studmaterial2 = static_cast<Ogre::MaterialPtr>(Ogre::MaterialManager::getSingleton().getByName("partcolor/3")); 
     ogreEntity->setMaterial(studmaterial1);
     ogreEntity2->setMaterial(studmaterial2);
 
-    Entity* floor = scnMgr->createEntity("stud.mesh");
-    SceneNode* floorNode = scnMgr->getRootSceneNode()->createChildSceneNode();
-    floorNode->setScale(10.0, 10.0, 10.0);
-    floorNode->setPosition(0.0, 0.0, 0.0);
-    floor->setMaterial(studmaterial2);
-    floorNode->attachObject(floor);
+    RBX::Classes::BasePart testpart = RBX::Classes::BasePart();
+    testpart.setBrickColor(1);
+    testpart.setPosition(RBX::Classes::Vector3(5.0, 5.0, 5.0));
+
 
 
 }
@@ -112,10 +112,10 @@ bool OpenThisle::keyPressed(const KeyboardEvent& evt)
             this->captureCounter = 1;
             delete rendertarget;
             rendertarget = nullptr;
+            
         } else {
             this->setWindowGrab((NativeWindowType*)rendertarget, true);
             this->captureCounter = 0;
-            delete rendertarget;
             rendertarget = nullptr;
         }
 

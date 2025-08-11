@@ -8,7 +8,9 @@
 #include <OgreCameraMan.h>
 #include <OgreResourceManager.h>
 #include <vector>
+#include "OgreSceneManager.h"
 #include "world.hpp"
+#include "./classes/classes.hpp"
 using namespace Ogre;
 using namespace OgreBites;
 

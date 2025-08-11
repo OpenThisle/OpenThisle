@@ -4,10 +4,11 @@
 
 namespace RBX {
 
-    int colors[3][3] = {
+    int colors[4][3] = {
         {255, 0, 0}, // red
         {0, 255, 0}, // green
-        {0, 0, 255}  // blue
+        {0, 0, 255},  // blue
+        {0, 0, 255} // terminate
     };
 
     void generateColorMaterial() {
